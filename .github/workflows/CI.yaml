@@ -37,5 +37,5 @@ jobs:
             - name: Deploy to ArgoCD
               run: |
                 argocd login argocd.k8s.vietnix.tech --insecure --username admin --password ${{ secrets.ARGOCD_PASSWORD }} --grpc-web
-                argocd app create nodejs-simple-api --repo https://github.com/nightbarron/nodejs-simple-api.git --path . --dest-server https://argocd.k8s.vietnix.tech --dest-namespace vietnix-tech
+                argocd app create nodejs-simple-api --repo https://github.com/nightbarron/nodejs-simple-api.git --path . --dest-server https://kubernetes.default.svc --dest-namespace vietnix-tech
                 argocd app sync nodejs-simple-api
